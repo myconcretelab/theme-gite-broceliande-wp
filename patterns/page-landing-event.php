@@ -1,8 +1,8 @@
 <?php
 /**
  * Title: Landing page for event
- * Slug: twentytwentyfive/page-landing-event
- * Categories: twentytwentyfive_page, featured
+ * Slug: theme-gite-broceliande-wp/page-landing-event
+ * Categories: theme-gite-broceliande-wp_page, featured
  * Keywords: starter
  * Block Types: core/post-content
  * Post Types: page, wp_template
@@ -10,14 +10,14 @@
  * Description: A landing page for the event with a hero section, description, FAQs and call to action.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
 
-<!-- wp:pattern {"slug":"twentytwentyfive/hero-full-width-image"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/heading-and-paragraph-with-image"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/banner-description-images-grid"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/text-faqs"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/contact-centered-social-link"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/hero-full-width-image"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/heading-and-paragraph-with-image"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/banner-description-images-grid"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/text-faqs"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/contact-centered-social-link"} /-->

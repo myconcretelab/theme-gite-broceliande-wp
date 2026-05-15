@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Right-aligned page
- * Slug: twentytwentyfive/template-page-vertical-header-blog
+ * Slug: theme-gite-broceliande-wp/template-page-vertical-header-blog
  * Template Types: page
  * Viewport width: 1400
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>

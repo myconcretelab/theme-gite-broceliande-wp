@@ -1,14 +1,14 @@
 <?php
 /**
  * Title: Centered link and social links
- * Slug: twentytwentyfive/contact-centered-social-link
+ * Slug: theme-gite-broceliande-wp/contact-centered-social-link
  * Keywords: contact, faq, questions
  * Categories: contact
  * Description: Centered contact section with a prominent message and social media links.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -18,7 +18,7 @@
 	<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide">
 		<!-- wp:paragraph {"align":"center","className":"is-style-text-display","style":{"typography":{"fontStyle":"normal","fontWeight":"400"}}} -->
-		<p class="has-text-align-center is-style-text-display" style="font-style:normal;font-weight:400"><?php echo wp_kses_post( _x( 'Got questions? <br><a href="#" rel="nofollow">Feel free to reach out.</a>', 'Heading of the Contact social link pattern', 'twentytwentyfive' ) ); ?></p>
+		<p class="has-text-align-center is-style-text-display" style="font-style:normal;font-weight:400"><?php echo wp_kses_post( _x( 'Got questions? <br><a href="#" rel="nofollow">Feel free to reach out.</a>', 'Heading of the Contact social link pattern', 'theme-gite-broceliande-wp' ) ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:spacer {"height":"var:preset|spacing|40"} -->

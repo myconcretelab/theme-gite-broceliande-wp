@@ -1,16 +1,16 @@
 <?php
 /**
  * Title: Post format name
- * Slug: twentytwentyfive/binding-format
- * Categories: twentytwentyfive_post-format
+ * Slug: theme-gite-broceliande-wp/binding-format
+ * Categories: theme-gite-broceliande-wp_post-format
  * Description: Prints the name of the post format with the help of the Block Bindings API.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
-<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"twentytwentyfive/format"}}},"fontSize":"small"} -->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"theme-gite-broceliande-wp/format"}}},"fontSize":"small"} -->
 <p class="has-small-font-size"></p>
 <!-- /wp:paragraph -->

@@ -1,12 +1,12 @@
 <?php
 /**
  * Title: 404
- * Slug: twentytwentyfive/hidden-404
+ * Slug: theme-gite-broceliande-wp/hidden-404
  * Inserter: no
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -18,7 +18,7 @@
 		<div class="wp-block-column">
 			<!-- wp:image {"scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
 			<figure class="wp-block-image size-full">
-				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/404-image.webp" alt="<?php echo esc_attr_x( 'Small totara tree on ridge above Long Point', 'image description', 'twentytwentyfive' ); ?>" style="object-fit:cover"/>
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/404-image.webp" alt="<?php echo esc_attr_x( 'Small totara tree on ridge above Long Point', 'image description', 'theme-gite-broceliande-wp' ); ?>" style="object-fit:cover"/>
 			</figure>
 			<!-- /wp:image -->
 		</div>
@@ -29,13 +29,13 @@
 			<div class="wp-block-group">
 				<!-- wp:heading {"level":1} -->
 				<h1 class="wp-block-heading">
-					<?php echo esc_html_x( 'Page not found', '404 error message', 'twentytwentyfive' ); ?>
+					<?php echo esc_html_x( 'Page not found', '404 error message', 'theme-gite-broceliande-wp' ); ?>
 				</h1>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph -->
-				<p><?php echo esc_html_x( 'The page you are looking for doesn\'t exist, or it has been moved. Please try searching using the form below.', '404 error message', 'twentytwentyfive' ); ?></p>
+				<p><?php echo esc_html_x( 'The page you are looking for doesn\'t exist, or it has been moved. Please try searching using the form below.', '404 error message', 'theme-gite-broceliande-wp' ); ?></p>
 				<!-- /wp:paragraph -->
-				<!-- wp:pattern {"slug":"twentytwentyfive/hidden-search"} /-->
+				<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/hidden-search"} /-->
 			</div>
 			<!-- /wp:group -->
 		</div>

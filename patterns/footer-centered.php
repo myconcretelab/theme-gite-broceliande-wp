@@ -1,14 +1,14 @@
 <?php
 /**
  * Title: Centered footer
- * Slug: twentytwentyfive/footer-centered
+ * Slug: theme-gite-broceliande-wp/footer-centered
  * Categories: footer
  * Block Types: core/template-part/footer
  * Description: Footer with centered site title and tagline.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -30,8 +30,8 @@
 		<?php
 		printf(
 			/* translators: Designed with WordPress. %s: WordPress link. */
-			esc_html__( 'Designed with %s', 'twentytwentyfive' ),
-			'<a href="' . esc_url( __( 'https://wordpress.org', 'twentytwentyfive' ) ) . '" rel="nofollow">WordPress</a>'
+			esc_html__( 'Designed with %s', 'theme-gite-broceliande-wp' ),
+			'<a href="' . esc_url( __( 'https://wordpress.org', 'theme-gite-broceliande-wp' ) ) . '" rel="nofollow">WordPress</a>'
 		);
 		?>
 	</p>

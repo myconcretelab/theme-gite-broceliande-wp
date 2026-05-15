@@ -1,14 +1,14 @@
 <?php
 /**
  * Title: News blog home
- * Slug: twentytwentyfive/template-home-news-blog
+ * Slug: theme-gite-broceliande-wp/template-home-news-blog
  * Template Types: front-page, index, home
  * Viewport width: 1400
  * Inserter: no
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -37,7 +37,7 @@
 						<!-- /wp:post-template -->
 						<!-- wp:query-no-results -->
 							<!-- wp:paragraph -->
-							<p><?php echo esc_html_x( 'Sorry, but nothing was found. Please try a search with different keywords.', 'Message explaining that there are no results returned from a search.', 'twentytwentyfive' ); ?></p>
+							<p><?php echo esc_html_x( 'Sorry, but nothing was found. Please try a search with different keywords.', 'Message explaining that there are no results returned from a search.', 'theme-gite-broceliande-wp' ); ?></p>
 							<!-- /wp:paragraph -->
 						<!-- /wp:query-no-results -->
 					</div>

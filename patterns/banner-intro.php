@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Intro with left-aligned description
- * Slug: twentytwentyfive/banner-intro
+ * Slug: theme-gite-broceliande-wp/banner-intro
  * Categories: banner
  * Description: A large left-aligned heading with a brand name emphasized in bold.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -18,8 +18,8 @@
 		<?php
 			printf(
 				/* translators: %s is the brand name, e.g., 'Fleurs'. */
-				esc_html_x( 'We\'re %s, our mission is to deliver exquisite flower arrangements that not only adorn living spaces but also inspire a deeper appreciation for natural beauty.', 'Pattern placeholder text.', 'twentytwentyfive' ),
-				'<strong>' . esc_html_x( 'Fleurs', 'Example brand name.', 'twentytwentyfive' ) . '</strong>'
+				esc_html_x( 'We\'re %s, our mission is to deliver exquisite flower arrangements that not only adorn living spaces but also inspire a deeper appreciation for natural beauty.', 'Pattern placeholder text.', 'theme-gite-broceliande-wp' ),
+				'<strong>' . esc_html_x( 'Fleurs', 'Example brand name.', 'theme-gite-broceliande-wp' ) . '</strong>'
 			);
 			?>
 	</h2>

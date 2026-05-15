@@ -1,8 +1,8 @@
 <?php
 /**
  * Title: Business homepage
- * Slug: twentytwentyfive/page-business-home
- * Categories: twentytwentyfive_page, featured
+ * Slug: theme-gite-broceliande-wp/page-business-home
+ * Categories: theme-gite-broceliande-wp_page, featured
  * Keywords: starter
  * Block Types: core/post-content
  * Post Types: page, wp_template
@@ -10,15 +10,15 @@
  * Description: A business homepage pattern.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
 
-<!-- wp:pattern {"slug":"twentytwentyfive/cta-centered-heading"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/overlapped-images"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/services-3-col"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/testimonials-large"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/pricing-2-col"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/cta-newsletter"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/cta-centered-heading"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/overlapped-images"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/services-3-col"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/testimonials-large"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/pricing-2-col"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/cta-newsletter"} /-->

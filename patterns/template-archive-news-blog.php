@@ -1,14 +1,14 @@
 <?php
 /**
  * Title: News blog archive
- * Slug: twentytwentyfive/template-archive-news-blog
+ * Slug: theme-gite-broceliande-wp/template-archive-news-blog
  * Template Types: archive
  * Viewport width: 1400
  * Inserter: no
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -30,7 +30,7 @@
 	<!-- /wp:group -->
 	<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide">
-		<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop-news-blog"} /-->
+		<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/template-query-loop-news-blog"} /-->
 	</div>
 	<!-- /wp:group -->
 </main>

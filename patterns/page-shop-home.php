@@ -1,8 +1,8 @@
 <?php
 /**
  * Title: Shop homepage
- * Slug: twentytwentyfive/page-shop-home
- * Categories: twentytwentyfive_page
+ * Slug: theme-gite-broceliande-wp/page-shop-home
+ * Categories: theme-gite-broceliande-wp_page
  * Keywords: starter
  * Block Types: core/post-content
  * Post Types: page, wp_template
@@ -10,12 +10,12 @@
  * Description: A shop homepage pattern.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
 
-<!-- wp:pattern {"slug":"twentytwentyfive/banner-intro-image"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/grid-with-categories"} /-->
-<!-- wp:pattern {"slug":"twentytwentyfive/media-instagram-grid"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/banner-intro-image"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/grid-with-categories"} /-->
+<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/media-instagram-grid"} /-->

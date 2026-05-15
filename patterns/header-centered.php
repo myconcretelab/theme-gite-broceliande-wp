@@ -1,14 +1,14 @@
 <?php
 /**
  * Title: Centered site header
- * Slug: twentytwentyfive/header-centered
+ * Slug: theme-gite-broceliande-wp/header-centered
  * Categories: header
  * Block Types: core/template-part/header
  * Description: Site header with centered site title and navigation.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>

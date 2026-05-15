@@ -1,14 +1,14 @@
 <?php
 /**
  * Title: Photo blog search results
- * Slug: twentytwentyfive/template-search-photo-blog
+ * Slug: theme-gite-broceliande-wp/template-search-photo-blog
  * Template Types: search
  * Viewport width: 1400
  * Inserter: no
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -19,10 +19,10 @@
 	<!-- wp:query-title {"type":"search","textAlign":"center","align":"wide"} /-->
 	<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide">
-		<!-- wp:pattern {"slug":"twentytwentyfive/hidden-search"} /-->
+		<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/hidden-search"} /-->
 	</div>
 	<!-- /wp:group -->
-	<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop-photo-blog"} /-->
+	<!-- wp:pattern {"slug":"theme-gite-broceliande-wp/template-query-loop-photo-blog"} /-->
 </main>
 <!-- /wp:group -->
 

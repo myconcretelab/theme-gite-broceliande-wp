@@ -1,15 +1,15 @@
 <?php
 /**
  * Title: Photo blog posts
- * Slug: twentytwentyfive/template-query-loop-photo-blog
+ * Slug: theme-gite-broceliande-wp/template-query-loop-photo-blog
  * Categories: query
  * Block Types: core/query
  * Viewport width: 1400
  * Description: A list of posts, 3 columns, with only featured images.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * @subpackage Theme_Gite_Broceliande_WP
+ * @since Gîtes Brocéliande 1.0
  */
 
 ?>
@@ -19,7 +19,7 @@
 		<div class="wp-block-group">
 		<!-- wp:query-no-results -->
 		<!-- wp:paragraph {"align":"center"} -->
-		<p class="has-text-align-center"><?php echo esc_html_x( 'Sorry, but nothing was found. Please try a search with different keywords.', 'Message explaining that there are no results returned from a search.', 'twentytwentyfive' ); ?></p>
+		<p class="has-text-align-center"><?php echo esc_html_x( 'Sorry, but nothing was found. Please try a search with different keywords.', 'Message explaining that there are no results returned from a search.', 'theme-gite-broceliande-wp' ); ?></p>
 		<!-- /wp:paragraph -->
 		<!-- /wp:query-no-results -->
 	</div>
