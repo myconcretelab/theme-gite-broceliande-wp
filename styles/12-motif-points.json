@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+	"title": "Motif points",
+	"styles": {
+		"color": {
+			"background": "var:preset|color|base",
+			"text": "var:preset|color|contrast"
+		},
+		"css": "body{background-image:radial-gradient(color-mix(in srgb,var(--wp--preset--color--contrast) 12%,transparent) 1px,transparent 1px);background-size:24px 24px}.wp-site-blocks{background:transparent}"
+	}
+}

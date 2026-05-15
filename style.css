@@ -1,0 +1,153 @@
+/*
+Theme Name: Gîtes Brocéliande
+Theme URI: https://github.com/myconcretelab/theme-gite-broceliande-wp
+Author: the WordPress team
+Author URI: https://wordpress.org
+Description: Thème Gîtes Brocéliande, basé sur Twenty Twenty-Five.
+Requires at least: 6.7
+Tested up to: 6.9
+Requires PHP: 7.2
+Version: 1.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: theme-gite-broceliande-wp
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
+*/
+
+/*
+ * IMPORTANT: This file is only served on the frontend when `SCRIPT_DEBUG` is enabled;
+ * in most instances, the `style.min.css` file will be served. It is not recommended that you
+ * use the Theme File Editor to modify this stylesheet. Instead, add the necessary style
+ * overrides via "Additional CSS" in the Site Editor.
+ */
+
+/*
+ * Link styles
+ * https://github.com/WordPress/gutenberg/issues/42319
+ */
+a {
+	text-decoration-thickness: 1px !important;
+	text-underline-offset: .1em;
+}
+
+/* Focus styles */
+:where(.wp-site-blocks *:focus) {
+	outline-width: 2px;
+	outline-style: solid;
+}
+
+/* Increase the bottom margin on submenus, so that the outline is visible. */
+.wp-block-navigation .wp-block-navigation-submenu .wp-block-navigation-item:not(:last-child) {
+	margin-bottom: 3px;
+}
+
+/* Increase the outline offset on the parent menu items, so that the outline does not touch the text. */
+.wp-block-navigation .wp-block-navigation-item .wp-block-navigation-item__content {
+	outline-offset: 4px;
+}
+
+/* Remove outline offset from the submenus, otherwise the outline is visible outside the submenu container. */
+.wp-block-navigation .wp-block-navigation-item ul.wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	outline-offset: 0;
+}
+
+/*
+ * Progressive enhancement to reduce widows and orphans
+ * https://github.com/WordPress/gutenberg/issues/55190
+ */
+h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
+	text-wrap: pretty;
+}
+
+/*
+ * Change the position of the more block on the front, by making it a block level element.
+ * https://github.com/WordPress/gutenberg/issues/65934
+*/
+.more-link {
+	display: block;
+}
+
+/*
+ * Prevents unnecessary scrollbars while handling long lines of preformatted text.
+ * https://core.trac.wordpress.org/ticket/63875
+ */
+:where(pre) {
+	overflow-x: auto;
+}
+
+/* Default page width for desktop and intermediate screens. */
+@media (min-width: 782px) and (max-width: 1279px) {
+	body {
+		--wp--style--global--content-size: 1024px;
+		--wp--style--global--wide-size: 1024px;
+	}
+}
+
+/* Gite page template hero. */
+.gite-page-hero {
+	position: relative;
+}
+
+.gite-page-hero__content {
+	padding-top: var(--wp--preset--spacing--60);
+}
+
+.gite-page-hero__content .wp-block-post-title {
+	margin: 0;
+}
+
+.gite-page-hero .wp-block-post-featured-image {
+	margin: 0;
+}
+
+.gite-page-hero:has(.wp-block-post-featured-image img) {
+	min-height: 520px;
+	overflow: hidden;
+}
+
+.gite-page-hero:has(.wp-block-post-featured-image img) .wp-block-post-featured-image {
+	height: 520px;
+}
+
+.gite-page-hero:has(.wp-block-post-featured-image img) .wp-block-post-featured-image img {
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.gite-page-hero:has(.wp-block-post-featured-image img) .gite-page-hero__content {
+	bottom: var(--wp--preset--spacing--60);
+	left: var(--wp--style--root--padding-left);
+	padding-top: 0;
+	position: absolute;
+	right: var(--wp--style--root--padding-right);
+	z-index: 2;
+}
+
+.gite-page-hero:has(.wp-block-post-featured-image img) .wp-block-post-title {
+	color: var(--wp--preset--color--base);
+}
+
+.gite-page-hero:not(:has(.wp-block-post-featured-image img)) .wp-block-post-title {
+	color: var(--wp--preset--color--contrast) !important;
+}
+
+/* Gite page sidebar. */
+@media (min-width: 782px) {
+	.page-template-page-gite .wp-block-columns:has(.gite-page-sidebar),
+	.page-template-page-gite .wp-block-columns:has(.booked-booking-card) {
+		min-height: calc(100vh - var(--wp--preset--spacing--40));
+	}
+
+	.page-template-page-gite .gite-page-sidebar,
+	.page-template-page-gite .wp-block-column:has(> .booked-booking-card) {
+		align-self: flex-start;
+		position: sticky;
+		top: var(--wp--preset--spacing--40);
+	}
+
+	body.admin-bar.page-template-page-gite .gite-page-sidebar,
+	body.admin-bar.page-template-page-gite .wp-block-column:has(> .booked-booking-card) {
+		top: calc(32px + var(--wp--preset--spacing--40));
+	}
+}

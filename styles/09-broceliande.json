@@ -1,0 +1,95 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+	"title": "Brocéliande",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#F7F3EA",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#1E251B",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#D8B35A",
+					"name": "Accent 1",
+					"slug": "accent-1"
+				},
+				{
+					"color": "#E7D8BF",
+					"name": "Accent 2",
+					"slug": "accent-2"
+				},
+				{
+					"color": "#315B3B",
+					"name": "Accent 3",
+					"slug": "accent-3"
+				},
+				{
+					"color": "#6B7464",
+					"name": "Accent 4",
+					"slug": "accent-4"
+				},
+				{
+					"color": "#FFFDF7",
+					"name": "Accent 5",
+					"slug": "accent-5"
+				},
+				{
+					"color": "#1E251B26",
+					"name": "Accent 6",
+					"slug": "accent-6"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var:preset|color|base",
+			"text": "var:preset|color|contrast"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|ysabeau-office",
+			"fontWeight": "350",
+			"lineHeight": "1.48"
+		},
+		"elements": {
+			"button": {
+				"border": {
+					"radius": "6px"
+				},
+				"color": {
+					"background": "var:preset|color|accent-3",
+					"text": "var:preset|color|base"
+				}
+			},
+			"heading": {
+				"color": {
+					"text": "var:preset|color|contrast"
+				},
+				"typography": {
+					"fontFamily": "var:preset|font-family|literata",
+					"fontWeight": "700",
+					"lineHeight": "1.08"
+				}
+			}
+		},
+		"blocks": {
+			"core/group": {
+				"border": {
+					"radius": "8px"
+				}
+			},
+			"core/image": {
+				"border": {
+					"radius": "8px"
+				}
+			}
+		}
+	}
+}

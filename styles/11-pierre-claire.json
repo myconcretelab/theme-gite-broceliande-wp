@@ -1,0 +1,86 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+	"title": "Pierre claire",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#FAF9F5",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#222522",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#B38A3F",
+					"name": "Accent 1",
+					"slug": "accent-1"
+				},
+				{
+					"color": "#E9E4D8",
+					"name": "Accent 2",
+					"slug": "accent-2"
+				},
+				{
+					"color": "#466A55",
+					"name": "Accent 3",
+					"slug": "accent-3"
+				},
+				{
+					"color": "#6C6F69",
+					"name": "Accent 4",
+					"slug": "accent-4"
+				},
+				{
+					"color": "#F0EEE8",
+					"name": "Accent 5",
+					"slug": "accent-5"
+				},
+				{
+					"color": "#2225221F",
+					"name": "Accent 6",
+					"slug": "accent-6"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var:preset|color|base",
+			"text": "var:preset|color|contrast"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|fira-sans",
+			"fontWeight": "400",
+			"lineHeight": "1.5"
+		},
+		"elements": {
+			"button": {
+				"border": {
+					"radius": "4px"
+				},
+				"color": {
+					"background": "var:preset|color|contrast",
+					"text": "var:preset|color|base"
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|roboto-slab",
+					"fontWeight": "650"
+				}
+			}
+		},
+		"blocks": {
+			"core/image": {
+				"border": {
+					"radius": "4px"
+				}
+			}
+		}
+	}
+}
