@@ -2,7 +2,46 @@
  * Link styles
  * https://github.com/WordPress/gutenberg/issues/42319
  */
+body,
+.editor-styles-wrapper {
+	background-color: rgb(240, 240, 232);
+	background-image: url("../images/noise.png");
+	background-repeat: repeat;
+}
+
 a {
 	text-decoration-thickness: 1px !important;
 	text-underline-offset: .1em;
+}
+
+/* Paper sheet block style. */
+.is-style-paper-sheet {
+	background-color: #fff;
+	box-sizing: border-box;
+	isolation: isolate;
+	padding: clamp(1.25rem, 3vw, 2.5rem);
+	position: relative;
+}
+
+.is-style-paper-sheet::before,
+.is-style-paper-sheet::after {
+	bottom: 0.75rem;
+	content: "";
+	height: 1.25rem;
+	pointer-events: none;
+	position: absolute;
+	width: 46%;
+	z-index: -1;
+}
+
+.is-style-paper-sheet::before {
+	box-shadow: 6px 8px 8px 4px rgb(17 17 17 / 24%);
+	left: 0.75rem;
+	transform: rotate(-2deg);
+}
+
+.is-style-paper-sheet::after {
+	box-shadow: -6px 8px 8px 4px rgb(17 17 17 / 24%);
+	right: 0.75rem;
+	transform: rotate(2deg);
 }

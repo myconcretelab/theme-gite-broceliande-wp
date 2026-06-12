@@ -333,7 +333,7 @@
 	},
 	"styles": {
 		"color": {
-			"background": "var:preset|color|base",
+			"background": "rgb(240, 240, 232)",
 			"text": "var:preset|color|contrast"
 		},
 		"spacing": {

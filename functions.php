@@ -92,6 +92,28 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_block_styles' ) ) :
 				}',
 			)
 		);
+
+		$paper_sheet_blocks = array(
+			'core/group',
+			'core/columns',
+			'core/column',
+			'core/paragraph',
+			'core/heading',
+			'core/list',
+			'core/quote',
+			'core/image',
+			'core/media-text',
+		);
+
+		foreach ( $paper_sheet_blocks as $block_name ) {
+			register_block_style(
+				$block_name,
+				array(
+					'name'  => 'paper-sheet',
+					'label' => __( 'Feuille de papier', 'theme-gite-broceliande-wp' ),
+				)
+			);
+		}
 	}
 endif;
 add_action( 'init', 'theme_gite_broceliande_wp_block_styles' );
