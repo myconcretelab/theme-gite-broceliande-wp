@@ -7,7 +7,7 @@ Description: Thème Gîtes Brocéliande pour WordPress.
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.2
-Version: 1.5.7
+Version: 1.5.8
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: theme-gite-broceliande-wp
@@ -78,32 +78,13 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
 .is-style-paper-sheet {
 	background-color: #fff;
 	box-sizing: border-box;
-	isolation: isolate;
+	box-shadow:
+		0 1px 2px rgb(17 17 17 / 8%),
+		-8px 12px 16px -12px rgb(17 17 17 / 28%),
+		8px 12px 16px -12px rgb(17 17 17 / 28%),
+		0 18px 24px -20px rgb(17 17 17 / 40%);
 	padding: clamp(1.25rem, 3vw, 2.5rem);
 	position: relative;
-}
-
-.is-style-paper-sheet::before,
-.is-style-paper-sheet::after {
-	bottom: 0.75rem;
-	content: "";
-	height: 1.25rem;
-	pointer-events: none;
-	position: absolute;
-	width: 46%;
-	z-index: -1;
-}
-
-.is-style-paper-sheet::before {
-	box-shadow: 6px 8px 8px 4px rgb(17 17 17 / 24%);
-	left: 0.75rem;
-	transform: rotate(-2deg);
-}
-
-.is-style-paper-sheet::after {
-	box-shadow: -6px 8px 8px 4px rgb(17 17 17 / 24%);
-	right: 0.75rem;
-	transform: rotate(2deg);
 }
 
 /*
