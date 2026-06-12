@@ -18,12 +18,12 @@
 		<!-- wp:column {"width":"45%","style":{"spacing":{"padding":{"right":"var:preset|spacing|50"}}}} -->
 		<div class="wp-block-column" style="padding-right:var(--wp--preset--spacing--50);flex-basis:45%">
 			<!-- wp:image {"sizeSlug":"full"} -->
-			<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/red-hibiscus-closeup.webp" alt="<?php esc_attr_e( 'Photography close up of a red flower.', 'theme-gite-broceliande-wp' ); ?>"/></figure>
+			<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/composition-placeholder.webp" alt=""/></figure>
 			<!-- /wp:image -->
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"-12vw"}}},"layout":{"type":"constrained"}} -->
 			<div class="wp-block-group" style="margin-top:-12vw">
 				<!-- wp:image {"width":"202px","sizeSlug":"full","align":"right","className":"is-resized","style":{"spacing":{"margin":{"right":"-5vw","left":"-5vw"}}}} -->
-				<figure class="wp-block-image alignright size-full is-resized" style="margin-right:-5vw;margin-left:-5vw"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/grid-flower-2.webp" alt="<?php esc_attr_e( 'Black and white photography close up of a flower.', 'theme-gite-broceliande-wp' ); ?>" style="width:202px"/></figure>
+				<figure class="wp-block-image alignright size-full is-resized" style="margin-right:-5vw;margin-left:-5vw"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/composition-placeholder.webp" alt="" style="width:202px"/></figure>
 				<!-- /wp:image -->
 			</div>
 			<!-- /wp:group -->

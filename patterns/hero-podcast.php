@@ -19,7 +19,7 @@
 		<div class="wp-block-column" style="flex-basis:40%">
 			<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
 			<figure class="wp-block-image size-large">
-				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-podcast.webp" alt="<?php echo esc_attr_x( 'Picture of a person', 'Alt text for hero image.', 'theme-gite-broceliande-wp' ); ?>"/>
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/composition-placeholder.webp" alt=""/>
 			</figure>
 			<!-- /wp:image -->
 		</div>

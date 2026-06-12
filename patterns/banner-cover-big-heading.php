@@ -17,7 +17,7 @@
 	<div class="wp-block-group alignwide">
 		<!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"wide"} -->
 		<figure class="wp-block-image alignwide size-full">
-			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/coming-soon-bg-image.webp" alt="<?php esc_attr_e( 'Photo of a field full of flowers, a blue sky and a tree.', 'theme-gite-broceliande-wp' ); ?>"/>
+			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/composition-placeholder.webp" alt=""/>
 		</figure>
 		<!-- /wp:image -->
 
