@@ -24,6 +24,25 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_post_format_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'theme_gite_broceliande_wp_post_format_setup' );
 
+// Registers navigation menu locations.
+if ( ! function_exists( 'theme_gite_broceliande_wp_register_nav_menus' ) ) :
+	/**
+	 * Registers navigation menu locations.
+	 *
+	 * @since Gites Broceliande 1.5.13
+	 *
+	 * @return void
+	 */
+	function theme_gite_broceliande_wp_register_nav_menus() {
+		register_nav_menus(
+			array(
+				'header-secondary' => __( 'Menu secondaire du header', 'theme-gite-broceliande-wp' ),
+			)
+		);
+	}
+endif;
+add_action( 'after_setup_theme', 'theme_gite_broceliande_wp_register_nav_menus' );
+
 // Enqueues editor-style.css in the editors.
 if ( ! function_exists( 'theme_gite_broceliande_wp_editor_style' ) ) :
 	/**
@@ -66,6 +85,59 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_enqueue_styles' ) ) :
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'theme_gite_broceliande_wp_enqueue_styles' );
+
+// Adds the compact state to the sticky header after the visitor scrolls.
+if ( ! function_exists( 'theme_gite_broceliande_wp_enqueue_header_script' ) ) :
+	/**
+	 * Enqueues the sticky header behavior on the front.
+	 *
+	 * @since Gites Broceliande 1.5.11
+	 *
+	 * @return void
+	 */
+	function theme_gite_broceliande_wp_enqueue_header_script() {
+		$handle = 'theme-gite-broceliande-wp-header';
+		$script = '(() => {
+			const header = document.querySelector(".gb-site-header");
+
+			if (!header) {
+				return;
+			}
+
+			let ticking = false;
+			const update = () => {
+				const isScrolled = window.scrollY > 16;
+
+				header.classList.toggle("is-scrolled", isScrolled);
+				document.body.classList.toggle("has-scrolled-header", isScrolled);
+				ticking = false;
+			};
+			const queueUpdate = () => {
+				if (ticking) {
+					return;
+				}
+
+				ticking = true;
+				window.requestAnimationFrame(update);
+			};
+
+			update();
+			window.addEventListener("scroll", queueUpdate, { passive: true });
+			window.addEventListener("resize", queueUpdate);
+		})();';
+
+		wp_register_script(
+			$handle,
+			false,
+			array(),
+			wp_get_theme()->get( 'Version' ),
+			true
+		);
+		wp_enqueue_script( $handle );
+		wp_add_inline_script( $handle, $script );
+	}
+endif;
+add_action( 'wp_enqueue_scripts', 'theme_gite_broceliande_wp_enqueue_header_script' );
 
 // Registers custom block styles.
 if ( ! function_exists( 'theme_gite_broceliande_wp_block_styles' ) ) :
