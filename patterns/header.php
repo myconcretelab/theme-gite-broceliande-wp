@@ -20,7 +20,6 @@
 		<div class="wp-block-group gb-site-header__brand">
 			<!-- wp:site-logo {"className":"gb-site-header__logo"} /-->
 			<!-- wp:site-title {"level":0,"className":"gb-site-header__title"} /-->
-			<!-- wp:site-tagline {"className":"gb-site-header__tagline"} /-->
 		</div>
 		<!-- /wp:group -->
 
