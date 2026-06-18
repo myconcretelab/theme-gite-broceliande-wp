@@ -7,7 +7,7 @@ Description: Thème Gîtes Brocéliande pour WordPress.
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.2
-Version: 1.5.14
+Version: 1.5.16
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: theme-gite-broceliande-wp
@@ -179,26 +179,26 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 	position: relative;
 }
 
-.gb-site-header__brand::before {
-	background:
-		radial-gradient(circle at 35% 35%, rgb(255 238 88 / 88%) 0 18%, transparent 19%),
-		linear-gradient(135deg, var(--wp--preset--color--contrast), var(--wp--preset--color--accent-3));
-	border-radius: 50% 50% 46% 54%;
-	box-shadow: 0 10px 22px rgb(80 58 168 / 18%);
-	content: "";
-	flex: 0 0 clamp(2.3rem, 4vw, 3.25rem);
+.gb-site-header__logo {
+	flex: 0 0 auto;
+	line-height: 0;
+	margin: 0;
+}
+
+.gb-site-header__logo img {
+	display: block;
 	height: clamp(2.3rem, 4vw, 3.25rem);
+	max-width: none;
+	object-fit: contain;
+	width: auto;
 	transition:
-		flex-basis .24s ease,
 		height .24s ease,
 		transform .24s ease;
 }
 
-.gb-site-header.is-scrolled .gb-site-header__brand::before,
-.has-scrolled-header .gb-site-header .gb-site-header__brand::before {
-	flex-basis: 2.3rem;
+.gb-site-header.is-scrolled .gb-site-header__logo img,
+.has-scrolled-header .gb-site-header .gb-site-header__logo img {
 	height: 2.3rem;
-	transform: rotate(-8deg);
 }
 
 .gb-site-header__title {

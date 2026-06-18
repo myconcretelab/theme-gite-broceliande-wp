@@ -104,12 +104,19 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_enqueue_header_script' ) ) :
 				return;
 			}
 
+			const compactAt = 32;
+			const expandAt = 6;
+			let isScrolled = header.classList.contains("is-scrolled") || document.body.classList.contains("has-scrolled-header");
 			let ticking = false;
 			const update = () => {
-				const isScrolled = window.scrollY > 16;
+				const scrollY = window.scrollY || window.pageYOffset || 0;
+				const nextIsScrolled = isScrolled ? scrollY > expandAt : scrollY > compactAt;
 
-				header.classList.toggle("is-scrolled", isScrolled);
-				document.body.classList.toggle("has-scrolled-header", isScrolled);
+				if (nextIsScrolled !== isScrolled) {
+					isScrolled = nextIsScrolled;
+					header.classList.toggle("is-scrolled", isScrolled);
+					document.body.classList.toggle("has-scrolled-header", isScrolled);
+				}
 				ticking = false;
 			};
 			const queueUpdate = () => {
