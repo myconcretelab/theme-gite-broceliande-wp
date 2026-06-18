@@ -7,7 +7,7 @@ Description: Thème Gîtes Brocéliande pour WordPress.
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.2
-Version: 1.5.17
+Version: 1.5.18
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: theme-gite-broceliande-wp
@@ -298,32 +298,6 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 .gb-site-header__secondary-menu .current-menu-ancestor > a {
 	background-color: rgb(255 238 88 / 28%);
 	color: color-mix(in srgb, var(--wp--preset--color--contrast) 72%, var(--wp--preset--color--accent-4));
-}
-
-.gb-site-header__actions {
-	flex-shrink: 0;
-}
-
-.gb-site-header__cta .wp-block-button__link {
-	background: var(--wp--preset--color--contrast);
-	border: 1px solid rgb(17 17 17 / 16%);
-	border-radius: 999px;
-	box-shadow: 0 12px 24px rgb(17 17 17 / 14%);
-	color: var(--wp--preset--color--base);
-	padding: .52rem .95rem;
-	transition:
-		background-color .18s ease,
-		box-shadow .18s ease,
-		color .18s ease,
-		transform .18s ease;
-}
-
-.gb-site-header__cta .wp-block-button__link:hover,
-.gb-site-header__cta .wp-block-button__link:focus {
-	background: var(--wp--preset--color--accent-3);
-	box-shadow: 0 14px 28px rgb(80 58 168 / 20%);
-	color: var(--wp--preset--color--base);
-	transform: translateY(-1px);
 }
 
 @media (max-width: 781px) {

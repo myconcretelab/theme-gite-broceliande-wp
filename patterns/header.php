@@ -44,14 +44,6 @@
 					</nav>
 				<?php endif; ?>
 				<!-- /wp:html -->
-
-				<!-- wp:buttons {"className":"gb-site-header__actions","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} -->
-				<div class="wp-block-buttons gb-site-header__actions">
-					<!-- wp:button {"className":"gb-site-header__cta"} -->
-					<div class="wp-block-button gb-site-header__cta"><a class="wp-block-button__link wp-element-button" href="#"><?php esc_html_e( 'Réserver', 'theme-gite-broceliande-wp' ); ?></a></div>
-					<!-- /wp:button -->
-				</div>
-				<!-- /wp:buttons -->
 			</div>
 			<!-- /wp:group -->
 
