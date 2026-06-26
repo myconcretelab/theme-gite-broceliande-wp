@@ -26,13 +26,17 @@
 
 			<!-- wp:column {"width":"33.33%"} -->
 			<div class="wp-block-column" style="flex-basis:33.33%">
-				<!-- wp:booked/booking-card /-->
+				<!-- wp:group {"className":"gite-page-sidebar","layout":{"type":"constrained"}} -->
+				<div class="wp-block-group gite-page-sidebar">
+					<!-- wp:booked/booking-card /-->
 
-				<!-- wp:spacer {"height":"var:preset|spacing|40"} -->
-				<div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
-				<!-- /wp:spacer -->
+					<!-- wp:spacer {"height":"var:preset|spacing|40"} -->
+					<div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
+					<!-- /wp:spacer -->
 
-				<!-- wp:booked/gite-info {"selectedSectionIds":["__booked_no_selection__"],"selectedGroupIds":["__booked_no_selection__"],"selectedGeneralInfoItemIds":["price-low","price-high","address","options"],"showGroupTitles":false,"showNotes":false} /-->
+					<!-- wp:booked/gite-info {"selectedSectionIds":["__booked_no_selection__"],"selectedGroupIds":["__booked_no_selection__"],"selectedGeneralInfoItemIds":["price-low","price-high","address"],"showGroupTitles":false,"showNotes":false} /-->
+				</div>
+				<!-- /wp:group -->
 			</div>
 			<!-- /wp:column -->
 		</div>
