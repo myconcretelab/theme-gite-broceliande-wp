@@ -748,6 +748,7 @@
 			},
 			"core/site-title": {
 				"typography": {
+					"fontFamily": "var:preset|font-family|oswald",
 					"fontWeight": "300",
 					"letterSpacing": "-.5px"
 				},
