@@ -7,7 +7,7 @@ Description: Thème Gîtes Brocéliande pour WordPress.
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.2
-Version: 1.5.33
+Version: 1.5.34
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: theme-gite-broceliande-wp
@@ -396,7 +396,7 @@ header.wp-block-template-part:has(+ .gb-transparent-header-main) {
 }
 
 body:not(.has-scrolled-header) header.wp-block-template-part:has(+ .gb-transparent-header-main) .gb-site-header:not(.is-scrolled) {
-	color: var(--wp--preset--color--base);
+	color: var(--gb-transparent-header-text-color, var(--wp--preset--color--base));
 	text-shadow: 0 1px 12px rgb(0 0 0 / 34%);
 }
 

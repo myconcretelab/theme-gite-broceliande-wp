@@ -146,6 +146,64 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_enqueue_header_script' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'theme_gite_broceliande_wp_enqueue_header_script' );
 
+// Adds a per-page navigation color setting for the transparent header template.
+if ( ! function_exists( 'theme_gite_broceliande_wp_transparent_header_settings' ) ) :
+	function theme_gite_broceliande_wp_transparent_header_settings() {
+		register_post_meta(
+			'page',
+			'_gb_transparent_header_text_color',
+			array(
+				'type'              => 'string',
+				'single'            => true,
+				'default'           => '',
+				'sanitize_callback' => 'sanitize_hex_color',
+				'show_in_rest'      => true,
+				'auth_callback'     => static function () {
+					return current_user_can( 'edit_pages' );
+				},
+			)
+		);
+	}
+endif;
+add_action( 'init', 'theme_gite_broceliande_wp_transparent_header_settings' );
+
+if ( ! function_exists( 'theme_gite_broceliande_wp_enqueue_transparent_header_editor_settings' ) ) :
+	function theme_gite_broceliande_wp_enqueue_transparent_header_editor_settings() {
+		$screen = get_current_screen();
+		if ( ! $screen || 'page' !== $screen->post_type ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			'theme-gite-broceliande-wp-transparent-header-settings',
+			get_theme_file_uri( 'assets/js/transparent-header-settings.js' ),
+			array( 'wp-block-editor', 'wp-data', 'wp-edit-post', 'wp-element', 'wp-i18n', 'wp-plugins' ),
+			wp_get_theme()->get( 'Version' ),
+			true
+		);
+	}
+endif;
+add_action( 'enqueue_block_editor_assets', 'theme_gite_broceliande_wp_enqueue_transparent_header_editor_settings' );
+
+if ( ! function_exists( 'theme_gite_broceliande_wp_transparent_header_color' ) ) :
+	function theme_gite_broceliande_wp_transparent_header_color() {
+		if ( ! is_page_template( 'page-transparent-header' ) ) {
+			return;
+		}
+
+		$color = sanitize_hex_color( (string) get_post_meta( get_queried_object_id(), '_gb_transparent_header_text_color', true ) );
+		if ( ! $color ) {
+			return;
+		}
+
+		wp_add_inline_style(
+			'theme-gite-broceliande-wp-style',
+			sprintf( 'body.page-template-page-transparent-header{--gb-transparent-header-text-color:%s;}', $color )
+		);
+	}
+endif;
+add_action( 'wp_enqueue_scripts', 'theme_gite_broceliande_wp_transparent_header_color', 20 );
+
 // Registers custom block styles.
 if ( ! function_exists( 'theme_gite_broceliande_wp_block_styles' ) ) :
 	/**
