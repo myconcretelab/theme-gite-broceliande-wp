@@ -869,6 +869,11 @@
 	],
 	"customTemplates": [
 		{
+			"name": "page-transparent-header",
+			"postTypes": ["page"],
+			"title": "Page — Header transparent"
+		},
+		{
 			"name": "page-no-title",
 			"postTypes": ["page"],
 			"title": "Page No Title"
