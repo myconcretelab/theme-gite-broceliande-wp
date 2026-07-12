@@ -163,6 +163,36 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_transparent_header_settings' 
 				},
 			)
 		);
+		register_post_meta(
+			'page',
+			'_gb_gite_photo_header_style',
+			array(
+				'type'              => 'string',
+				'single'            => true,
+				'default'           => 'classic',
+				'sanitize_callback' => static function ( $value ) {
+					return in_array( $value, array( 'classic', 'frames' ), true ) ? $value : 'classic';
+				},
+				'show_in_rest'      => true,
+				'auth_callback'     => static function () {
+					return current_user_can( 'edit_pages' );
+				},
+			)
+		);
+		register_post_meta(
+			'page',
+			'_gb_gite_photo_header_background_id',
+			array(
+				'type'              => 'integer',
+				'single'            => true,
+				'default'           => 0,
+				'sanitize_callback' => 'absint',
+				'show_in_rest'      => true,
+				'auth_callback'     => static function () {
+					return current_user_can( 'edit_pages' );
+				},
+			)
+		);
 	}
 endif;
 add_action( 'init', 'theme_gite_broceliande_wp_transparent_header_settings' );
@@ -177,7 +207,7 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_enqueue_transparent_header_ed
 		wp_enqueue_script(
 			'theme-gite-broceliande-wp-transparent-header-settings',
 			get_theme_file_uri( 'assets/js/transparent-header-settings.js' ),
-			array( 'wp-block-editor', 'wp-data', 'wp-edit-post', 'wp-element', 'wp-i18n', 'wp-plugins' ),
+			array( 'wp-block-editor', 'wp-components', 'wp-core-data', 'wp-data', 'wp-edit-post', 'wp-element', 'wp-i18n', 'wp-plugins' ),
 			wp_get_theme()->get( 'Version' ),
 			true
 		);
@@ -203,6 +233,56 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_transparent_header_color' ) )
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'theme_gite_broceliande_wp_transparent_header_color', 20 );
+
+if ( ! function_exists( 'theme_gite_broceliande_wp_gite_photo_header_layout' ) ) :
+	function theme_gite_broceliande_wp_gite_photo_header_layout( $parsed_block ) {
+		if (
+			'booked/gallery' !== ( $parsed_block['blockName'] ?? '' ) ||
+			! is_page_template( 'page-gite' ) ||
+			'frames' !== get_post_meta( get_queried_object_id(), '_gb_gite_photo_header_style', true )
+		) {
+			return $parsed_block;
+		}
+
+		$parsed_block['attrs']['layoutMode']        = 'frames';
+		$parsed_block['attrs']['featuredSideCount'] = 4;
+		return $parsed_block;
+	}
+endif;
+add_filter( 'render_block_data', 'theme_gite_broceliande_wp_gite_photo_header_layout' );
+
+if ( ! function_exists( 'theme_gite_broceliande_wp_gite_photo_header_body_class' ) ) :
+	function theme_gite_broceliande_wp_gite_photo_header_body_class( $classes ) {
+		if (
+			is_page_template( 'page-gite' ) &&
+			'frames' === get_post_meta( get_queried_object_id(), '_gb_gite_photo_header_style', true )
+		) {
+			$classes[] = 'has-gite-framed-photo-header';
+		}
+		return $classes;
+	}
+endif;
+add_filter( 'body_class', 'theme_gite_broceliande_wp_gite_photo_header_body_class' );
+
+if ( ! function_exists( 'theme_gite_broceliande_wp_gite_photo_header_background' ) ) :
+	function theme_gite_broceliande_wp_gite_photo_header_background() {
+		if ( ! is_page_template( 'page-gite' ) ) {
+			return;
+		}
+
+		$image_id = absint( get_post_meta( get_queried_object_id(), '_gb_gite_photo_header_background_id', true ) );
+		$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
+		if ( ! $image_url ) {
+			return;
+		}
+
+		wp_add_inline_style(
+			'theme-gite-broceliande-wp-style',
+			sprintf( '.has-gite-framed-photo-header .gite-page-hero{--gb-gite-photo-header-background:url("%s");}', esc_url_raw( $image_url ) )
+		);
+	}
+endif;
+add_action( 'wp_enqueue_scripts', 'theme_gite_broceliande_wp_gite_photo_header_background', 20 );
 
 // Registers custom block styles.
 if ( ! function_exists( 'theme_gite_broceliande_wp_block_styles' ) ) :
