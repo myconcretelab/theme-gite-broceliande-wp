@@ -748,7 +748,7 @@
 			},
 			"core/site-title": {
 				"typography": {
-					"fontWeight": "700",
+					"fontWeight": "300",
 					"letterSpacing": "-.5px"
 				},
 				"elements": {
@@ -858,7 +858,7 @@
 			"h6": {
 				"typography": {
 					"fontSize": "clamp(1rem, 1vw, 1rem)",
-					"fontWeight": "600",
+					"fontWeight": "300",
 					"letterSpacing": "0",
 					"textTransform": "none"
 				}
@@ -866,7 +866,7 @@
 			"heading": {
 				"typography": {
 					"fontFamily": "var:preset|font-family|oswald",
-					"fontWeight": "500",
+					"fontWeight": "300",
 					"lineHeight": "1.2",
 					"letterSpacing": "0"
 				}
