@@ -58,6 +58,88 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_editor_style' ) ) :
 endif;
 add_action( 'after_setup_theme', 'theme_gite_broceliande_wp_editor_style' );
 
+// Keeps the theme fonts available when Global Styles contain an older saved font list.
+if ( ! function_exists( 'theme_gite_broceliande_wp_register_global_style_fonts' ) ) :
+	/**
+	 * Adds Lato and Oswald to the user origin without removing saved font choices.
+	 *
+	 * WordPress can persist the list of font families in wp_global_styles. When the
+	 * theme later adds a family, that saved list takes precedence over theme.json.
+	 *
+	 * @since Gites Broceliande 1.5.39
+	 *
+	 * @param WP_Theme_JSON_Data $theme_json User Global Styles data.
+	 * @return WP_Theme_JSON_Data
+	 */
+	function theme_gite_broceliande_wp_register_global_style_fonts( $theme_json ) {
+		$data          = $theme_json->get_data();
+		$font_families = $data['settings']['typography']['fontFamilies']['custom'] ?? array();
+		$font_slugs    = array_column( $font_families, 'slug' );
+
+		if ( ! in_array( 'lato', $font_slugs, true ) ) {
+			$font_families[] = array(
+				'name'       => 'Lato',
+				'slug'       => 'lato',
+				'fontFamily' => 'Lato, sans-serif',
+				'fontFace'   => array(
+					array(
+						'fontFamily' => 'Lato',
+						'fontStyle'  => 'normal',
+						'fontWeight' => '300',
+						'src'        => array( get_theme_file_uri( 'assets/fonts/lato/Lato-Light.woff2' ) ),
+					),
+					array(
+						'fontFamily' => 'Lato',
+						'fontStyle'  => 'normal',
+						'fontWeight' => '400',
+						'src'        => array( get_theme_file_uri( 'assets/fonts/lato/Lato-Regular.woff2' ) ),
+					),
+					array(
+						'fontFamily' => 'Lato',
+						'fontStyle'  => 'normal',
+						'fontWeight' => '700',
+						'src'        => array( get_theme_file_uri( 'assets/fonts/lato/Lato-Bold.woff2' ) ),
+					),
+					array(
+						'fontFamily' => 'Lato',
+						'fontStyle'  => 'normal',
+						'fontWeight' => '900',
+						'src'        => array( get_theme_file_uri( 'assets/fonts/lato/Lato-Black.woff2' ) ),
+					),
+				),
+			);
+		}
+
+		if ( ! in_array( 'oswald', $font_slugs, true ) ) {
+			$font_families[] = array(
+				'name'       => 'Oswald',
+				'slug'       => 'oswald',
+				'fontFamily' => 'Oswald, sans-serif',
+				'fontFace'   => array(
+					array(
+						'fontFamily' => 'Oswald',
+						'fontStyle'  => 'normal',
+						'fontWeight' => '300 700',
+						'src'        => array( get_theme_file_uri( 'assets/fonts/oswald/Oswald-VariableFont_wght.woff2' ) ),
+					),
+				),
+			);
+		}
+
+		return $theme_json->update_with(
+			array(
+				'version'  => 3,
+				'settings' => array(
+					'typography' => array(
+						'fontFamilies' => $font_families,
+					),
+				),
+			)
+		);
+	}
+endif;
+add_filter( 'wp_theme_json_data_user', 'theme_gite_broceliande_wp_register_global_style_fonts' );
+
 // Enqueues the theme stylesheet on the front.
 if ( ! function_exists( 'theme_gite_broceliande_wp_enqueue_styles' ) ) :
 	/**
