@@ -413,6 +413,21 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_block_styles' ) ) :
 				)
 			);
 		}
+
+		$cartel_blocks = array(
+			'core/heading',
+			'core/paragraph',
+		);
+
+		foreach ( $cartel_blocks as $block_name ) {
+			register_block_style(
+				$block_name,
+				array(
+					'name'  => 'cartel',
+					'label' => __( 'Cartel', 'theme-gite-broceliande-wp' ),
+				)
+			);
+		}
 	}
 endif;
 add_action( 'init', 'theme_gite_broceliande_wp_block_styles' );

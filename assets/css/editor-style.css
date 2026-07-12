@@ -26,3 +26,29 @@ a {
 	padding: clamp(1.25rem, 3vw, 2.5rem);
 	position: relative;
 }
+
+/* Brass plaque block style. */
+.is-style-cartel {
+	border-color: transparent;
+	border-image-repeat: stretch;
+	border-image-slice: 0 190 fill;
+	border-image-source: url("../images/cartel-laiton.png");
+	border-image-width: 0 26px;
+	border-style: solid;
+	border-width: 0 26px;
+	box-sizing: border-box;
+	color: rgb(68 48 18 / 82%);
+	font-family: Georgia, "Times New Roman", serif;
+	font-weight: 700;
+	letter-spacing: .055em;
+	line-height: 1.15;
+	max-width: 100%;
+	padding: .6em .35em .68em;
+	text-shadow:
+		0 1px 0 rgb(255 240 174 / 58%),
+		0 -1px 0 rgb(44 27 7 / 82%),
+		1px 0 0 rgb(255 232 148 / 25%),
+		-1px 0 0 rgb(51 31 8 / 38%);
+	text-transform: uppercase;
+	width: fit-content;
+}
