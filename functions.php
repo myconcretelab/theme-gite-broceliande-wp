@@ -263,6 +263,22 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_transparent_header_settings' 
 		);
 		register_post_meta(
 			'page',
+			'_gb_gite_photo_header_frame',
+			array(
+				'type'              => 'string',
+				'single'            => true,
+				'default'           => 'ornate-wood',
+				'sanitize_callback' => static function ( $value ) {
+					return in_array( $value, array( 'rustic-dark', 'antique-gold', 'ornate-wood' ), true ) ? $value : 'ornate-wood';
+				},
+				'show_in_rest'      => true,
+				'auth_callback'     => static function () {
+					return current_user_can( 'edit_pages' );
+				},
+			)
+		);
+		register_post_meta(
+			'page',
 			'_gb_gite_photo_header_background_id',
 			array(
 				'type'              => 'integer',
@@ -326,8 +342,13 @@ if ( ! function_exists( 'theme_gite_broceliande_wp_gite_photo_header_layout' ) )
 			return $parsed_block;
 		}
 
-		$parsed_block['attrs']['layoutMode']        = 'frames';
-		$parsed_block['attrs']['featuredSideCount'] = 4;
+		$frame_style = (string) get_post_meta( get_queried_object_id(), '_gb_gite_photo_header_frame', true );
+
+		$parsed_block['attrs']['layoutMode']         = 'frames';
+		$parsed_block['attrs']['woodFrameStyle']     = in_array( $frame_style, array( 'rustic-dark', 'antique-gold', 'ornate-wood' ), true )
+			? $frame_style
+			: 'ornate-wood';
+		$parsed_block['attrs']['featuredSideCount']  = 4;
 		return $parsed_block;
 	}
 endif;

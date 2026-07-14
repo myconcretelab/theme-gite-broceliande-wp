@@ -9,6 +9,7 @@
 
 	const META_KEY = "_gb_transparent_header_text_color";
 	const GITE_HEADER_STYLE_KEY = "_gb_gite_photo_header_style";
+	const GITE_HEADER_FRAME_KEY = "_gb_gite_photo_header_frame";
 	const GITE_HEADER_BACKGROUND_KEY = "_gb_gite_photo_header_background_id";
 
 	const TransparentHeaderSettings = () => {
@@ -55,6 +56,7 @@
 			return {
 				background: backgroundId ? select("core").getMedia(backgroundId) : null,
 				backgroundId,
+				frame: meta[GITE_HEADER_FRAME_KEY] || "ornate-wood",
 				style: meta[GITE_HEADER_STYLE_KEY] || "classic",
 				template: editor.getEditedPostAttribute("template") || "",
 			};
@@ -84,6 +86,17 @@
 				? el(
 					Fragment,
 					null,
+					el(SelectControl, {
+						label: __("Cadre de l’image principale", "theme-gite-broceliande-wp"),
+						value: settings.frame,
+						options: [
+							{ label: __("Cadre bois rustique sombre", "theme-gite-broceliande-wp"), value: "rustic-dark" },
+							{ label: __("Cadre doré ancien", "theme-gite-broceliande-wp"), value: "antique-gold" },
+							{ label: __("Cadre bois orné", "theme-gite-broceliande-wp"), value: "ornate-wood" },
+						],
+						help: __("Cadre utilisé autour de la grande photo du header.", "theme-gite-broceliande-wp"),
+						onChange: (frame) => editPost({ meta: { [GITE_HEADER_FRAME_KEY]: frame } }),
+					}),
 					settings.background && settings.background.source_url
 						? el("img", {
 							alt: "",
