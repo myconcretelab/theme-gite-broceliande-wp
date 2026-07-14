@@ -7,7 +7,7 @@ Description: Thème Gîtes Brocéliande pour WordPress.
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.2
-Version: 1.5.54
+Version: 1.5.55
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: theme-gite-broceliande-wp
@@ -135,8 +135,9 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 
 .gb-site-header {
 	--gb-header-logo-size: clamp(108px, 9vw, 136px);
-	--gb-header-logo-compact-size: 48px;
+	--gb-header-logo-compact-size: 58px;
 	--gb-header-logo-slot-height: 64px;
+	--gb-header-surface: #fbfaf3;
 	isolation: isolate;
 	margin-block-start: 0;
 	overflow: visible;
@@ -144,9 +145,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 }
 
 .gb-site-header::before {
-	background:
-		linear-gradient(135deg, rgb(255 255 255 / 88%), rgb(251 250 243 / 76%)),
-		linear-gradient(90deg, rgb(80 58 168 / 10%), rgb(255 238 88 / 12%));
+	background: var(--gb-header-surface);
 	backdrop-filter: blur(18px) saturate(140%);
 	border-bottom: 1px solid rgb(17 17 17 / 10%);
 	box-shadow:
@@ -175,9 +174,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 
 .gb-site-header.is-scrolled::before,
 .has-scrolled-header .gb-site-header::before {
-	background:
-		linear-gradient(135deg, rgb(255 255 255 / 94%), rgb(251 250 243 / 88%)),
-		linear-gradient(90deg, rgb(80 58 168 / 8%), rgb(255 238 88 / 10%));
+	background: var(--gb-header-surface);
 	box-shadow:
 		0 10px 26px rgb(17 17 17 / 10%),
 		inset 0 1px 0 rgb(255 255 255 / 86%);
@@ -229,27 +226,21 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 }
 
 .gb-site-header__brand:has(.gb-site-header__logo img)::before {
-	background:
-		linear-gradient(135deg, rgb(255 255 255 / 94%), rgb(251 250 243 / 91%)),
-		linear-gradient(90deg, rgb(80 58 168 / 8%), rgb(255 238 88 / 10%));
-	border-bottom: 1px solid rgb(17 17 17 / 12%);
-	border-radius: 0 0 50% 50% / 0 0 72% 72%;
-	box-shadow: 0 18px 22px -22px rgb(17 17 17 / 52%);
+	background: url("assets/images/header-logo-bulge.svg") center / 100% 100% no-repeat;
 	content: "";
-	height: calc(var(--gb-header-logo-size) - 18px);
+	height: 150px;
 	left: 50%;
 	pointer-events: none;
 	position: absolute;
-	top: 22px;
-	transform: translateX(-50%) scale(1);
+	top: 0;
+	transform: translateX(-50%);
 	transform-origin: 50% 0;
 	transition:
 		height .3s ease,
 		top .3s ease,
 		transform .3s ease,
-		width .3s ease,
-		opacity .2s ease;
-	width: calc(var(--gb-header-logo-size) + 54px);
+		width .3s ease;
+	width: calc(var(--gb-header-logo-size) + 124px);
 	z-index: -1;
 }
 
@@ -289,21 +280,20 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 .gb-site-header.is-scrolled .gb-site-header__brand:has(.gb-site-header__logo img),
 .has-scrolled-header .gb-site-header .gb-site-header__brand:has(.gb-site-header__logo img) {
 	flex-basis: var(--gb-header-logo-compact-size);
-	height: var(--gb-header-logo-compact-size);
+	height: 44px;
 }
 
 .gb-site-header.is-scrolled .gb-site-header__brand:has(.gb-site-header__logo img)::before,
 .has-scrolled-header .gb-site-header .gb-site-header__brand:has(.gb-site-header__logo img)::before {
-	height: 20px;
-	top: 50%;
-	transform: translate(-50%, -20%) scale(.55);
-	width: calc(var(--gb-header-logo-compact-size) + 24px);
-	opacity: 0;
+	height: 56px;
+	top: 25px;
+	transform: translateX(-50%);
+	width: calc(var(--gb-header-logo-compact-size) + 70px);
 }
 
 .gb-site-header.is-scrolled .gb-site-header__logo,
 .has-scrolled-header .gb-site-header .gb-site-header__logo {
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -32%);
 }
 
 .gb-site-header__title {
@@ -427,7 +417,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 
 	.gb-site-header {
 		--gb-header-logo-size: 92px;
-		--gb-header-logo-compact-size: 44px;
+		--gb-header-logo-compact-size: 52px;
 		--gb-header-logo-slot-height: 54px;
 	}
 
