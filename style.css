@@ -7,7 +7,7 @@ Description: Thème Gîtes Brocéliande pour WordPress.
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.2
-Version: 1.5.57
+Version: 1.5.58
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: theme-gite-broceliande-wp
@@ -134,8 +134,10 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 }
 
 .gb-site-header {
-	--gb-header-logo-size: clamp(108px, 9vw, 136px);
-	--gb-header-logo-compact-size: 58px;
+	--gb-header-logo-footprint: clamp(108px, 9vw, 136px);
+	--gb-header-logo-size: 156px;
+	--gb-header-logo-compact-footprint: 58px;
+	--gb-header-logo-compact-size: 88px;
 	--gb-header-logo-slot-height: 64px;
 	--gb-header-surface: #fbfaf3;
 	isolation: isolate;
@@ -216,7 +218,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 
 .gb-site-header__brand:has(.gb-site-header__logo img) {
 	align-self: center;
-	flex: 0 0 var(--gb-header-logo-size);
+	flex: 0 0 var(--gb-header-logo-footprint);
 	height: var(--gb-header-logo-slot-height);
 	isolation: isolate;
 	justify-content: center;
@@ -240,7 +242,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 		top .3s ease,
 		transform .3s ease,
 		width .3s ease;
-	width: calc(var(--gb-header-logo-size) + 240px);
+	width: calc(var(--gb-header-logo-footprint) + 240px);
 	z-index: -1;
 }
 
@@ -251,7 +253,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 	margin: 0;
 	position: absolute;
 	top: 50%;
-	transform: translate(-50%, -35%);
+	transform: translate(-50%, -22%);
 	transition: transform .3s ease;
 }
 
@@ -279,7 +281,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 
 .gb-site-header.is-scrolled .gb-site-header__brand:has(.gb-site-header__logo img),
 .has-scrolled-header .gb-site-header .gb-site-header__brand:has(.gb-site-header__logo img) {
-	flex-basis: var(--gb-header-logo-compact-size);
+	flex-basis: var(--gb-header-logo-compact-footprint);
 	height: 44px;
 }
 
@@ -288,7 +290,7 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 	height: 56px;
 	top: 25px;
 	transform: translateX(-50%);
-	width: calc(var(--gb-header-logo-compact-size) + 82px);
+	width: calc(var(--gb-header-logo-compact-footprint) + 82px);
 }
 
 .gb-site-header.is-scrolled .gb-site-header__logo,
@@ -416,8 +418,10 @@ body.admin-bar header.wp-block-template-part:has(.gb-site-header) {
 	}
 
 	.gb-site-header {
-		--gb-header-logo-size: 92px;
-		--gb-header-logo-compact-size: 52px;
+		--gb-header-logo-footprint: 92px;
+		--gb-header-logo-size: 156px;
+		--gb-header-logo-compact-footprint: 52px;
+		--gb-header-logo-compact-size: 88px;
 		--gb-header-logo-slot-height: 54px;
 	}
 
