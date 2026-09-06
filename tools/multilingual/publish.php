@@ -5,6 +5,7 @@ function gb_translation_topology($content) {
  $out=[];
  $walk=function($blocks)use(&$walk,&$out){foreach($blocks as $block){
   if(!$block['blockName'])continue;
+  if(isset($block['attrs']['images']))$block['attrs']['images']=array_map(static fn($image)=>array_intersect_key($image,array_flip(['id','url'])), $block['attrs']['images']);
   $out[]=['name'=>$block['blockName'],'data'=>array_intersect_key($block['attrs'],array_flip(['giteId','selectedGroupIds','selectedSectionIds','imageIds','ids','images']))];
   $walk($block['innerBlocks']);
  }};
