@@ -521,3 +521,5 @@ function theme_gite_broceliande_wp_format_binding() {
 	}
 }
 endif;
+
+require_once get_theme_file_path('inc/multilingual.php');
