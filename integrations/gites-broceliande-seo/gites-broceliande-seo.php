@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gîtes de Brocéliande — Référencement
  * Description: Titres locaux, métadonnées, données structurées et contenu Booked accessible sans JavaScript. Données issues de l’application de gestion.
- * Version: 1.0.8
+ * Version: 1.0.9
  */
 defined('ABSPATH') || exit;
 
@@ -39,6 +39,8 @@ function gbseo_near_trehorenteuc($data) { return stripos(remove_accents(gbseo_ci
 function gbseo_capacity($data) { return absint($data['public_web_info']['max_people'] ?? 0); }
 function gbseo_name($id, $data) { return $data['public_title'] ?? get_the_title($id); }
 function gbseo_title($id) {
+    $custom = get_post_meta($id, '_gbseo_title', true);
+    if ($custom) return str_replace('{capacite}', gbseo_capacity(gbseo_data($id)), $custom);
     if ($id === (int)get_option('page_on_front')) return gbseo_t('Gîtes en Brocéliande, près de Tréhorenteuc', [], gbseo_language($id));
     $d = gbseo_data($id);
     if (!$d) return get_the_title($id).' | Gîtes de Brocéliande';
@@ -81,10 +83,22 @@ add_action('wp_head', function() {
         $business=['@type'=>'LodgingBusiness','@id'=>$url.'#gite','name'=>gbseo_name($id,$d),'url'=>$url,'description'=>$description,'address'=>['@type'=>'PostalAddress','streetAddress'=>preg_replace('/,?\s*\b\d{5}\s+.*$/u','',$d['adresse_complete']??''),'addressLocality'=>gbseo_city($d),'addressCountry'=>'FR']];
         if(preg_match('/\b(\d{5})\b/',$d['adresse_complete']??'', $m)) $business['address']['postalCode']=$m[1];
         if($image) $business['image']=$image;
-        $graph[]=$business; $graph[1]['mainEntity']=['@id'=>$url.'#gite'];
+        $business['name']=html_entity_decode($business['name'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $accommodation=['@type'=>'Accommodation','@id'=>$url.'#accommodation','name'=>$business['name'],'url'=>$url,'containedInPlace'=>['@id'=>$url.'#gite']];
+        $capacity=gbseo_capacity($d);
+        if($capacity) $accommodation['occupancy']=['@type'=>'QuantitativeValue','maxValue'=>$capacity,'unitCode'=>'C62'];
+        $surface=absint($d['public_web_info']['surface_m2']??0);
+        if($surface) $accommodation['floorSize']=['@type'=>'QuantitativeValue','value'=>$surface,'unitCode'=>'MTK'];
+        $business['containsPlace']=['@id'=>$url.'#accommodation'];
+        $graph[]=$business;
+        $graph[]=$accommodation;
+        $graph[1]['mainEntity']=['@id'=>$url.'#gite'];
+        $graph[1]['breadcrumb']=['@id'=>$url.'#breadcrumb'];
     } elseif(is_front_page()) {
         $items=[];
-        foreach(gbseo_pages() as $i=>$p) $items[]=['@type'=>'ListItem','position'=>$i+1,'name'=>get_the_title($p),'url'=>get_permalink($p)];
+        $pages=gbseo_pages(); $order=[332,103,123,289];
+        usort($pages,fn($a,$b)=>(array_search(gbseo_original_id($a->ID),$order)===false?99:array_search(gbseo_original_id($a->ID),$order))<=>(array_search(gbseo_original_id($b->ID),$order)===false?99:array_search(gbseo_original_id($b->ID),$order)));
+        foreach($pages as $i=>$p) $items[]=['@type'=>'ListItem','position'=>$i+1,'name'=>html_entity_decode(get_the_title($p), ENT_QUOTES | ENT_HTML5, 'UTF-8'),'url'=>get_permalink($p)];
         $graph[]=['@type'=>'ItemList','@id'=>$home.'#gites','itemListElement'=>$items];
         $graph[1]['mainEntity']=['@id'=>$home.'#gites'];
     }
@@ -187,15 +201,17 @@ add_filter('render_block_core/post-content',function($html) {
     return $html.$s.'</ul></section>';
 });
 add_action('wp_enqueue_scripts',function() {
-    wp_enqueue_style('gbseo',plugins_url('seo.css',__FILE__),[],'1.0.7');
+    wp_enqueue_style('gbseo',plugins_url('seo.css',__FILE__),[],'1.0.9');
 });
 // A small editor field keeps local search descriptions editable in WordPress.
 add_action('add_meta_boxes_page',function(){add_meta_box('gbseo-description','Référencement — description pour les moteurs',function($post){
     wp_nonce_field('gbseo_save','gbseo_nonce');
+    echo '<p><label>Titre pour les moteurs <input name="gbseo_title" type="text" style="width:100%" value="'.esc_attr(get_post_meta($post->ID,'_gbseo_title',true)).'" /></label></p>';
     echo '<p>La capacité et la commune sont actualisées depuis Booked avec {capacite} et {ville}.</p><textarea name="gbseo_description" rows="4" style="width:100%">'.esc_textarea(get_post_meta($post->ID,'_gbseo_description',true)).'</textarea>';
 },'page','normal');});
 add_action('save_post_page',function($id){
     if(!isset($_POST['gbseo_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['gbseo_nonce'])),'gbseo_save') || !current_user_can('edit_post',$id) || wp_is_post_revision($id) || (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)) return;
+    if(isset($_POST['gbseo_title'])) update_post_meta($id,'_gbseo_title',sanitize_text_field(wp_unslash($_POST['gbseo_title'])));
     if(isset($_POST['gbseo_description'])) update_post_meta($id,'_gbseo_description',sanitize_textarea_field(wp_unslash($_POST['gbseo_description'])));
 });
 // Reflect actual public-content changes from Booked in the native sitemap.
@@ -214,3 +230,37 @@ add_filter('wp_sitemaps_posts_entry', function($entry,$post) {
     }
     return $entry;
 },10,2);
+
+// Shared facts remain sourced from Booked, including the permitted occupancy
+// rather than the number of available beds. Only pages using this shortcode render it.
+add_shortcode('gbseo_facts', function() {
+    $d=gbseo_data();
+    if(!$d) return '';
+    $rows=[];
+    if(gbseo_capacity($d)) $rows[]=gbseo_t('Jusqu’à {count} personnes',['count'=>gbseo_capacity($d)]);
+    if(!empty($d['public_web_info']['surface_m2'])) $rows[]=absint($d['public_web_info']['surface_m2']).' m²';
+    if(!empty($d['adresse_complete'])) $rows[]=$d['adresse_complete'];
+    return '<p class="gbseo-facts">'.implode(' · ',array_map('esc_html',$rows)).'</p>';
+});
+
+// A sitemap can be generated correctly while WP_Query has already set HTTP 404.
+// Correct the status only for valid native sitemap data; unknown/empty routes stay 404.
+add_action('template_redirect', function() {
+    if(!function_exists('wp_sitemaps_get_server')) return;
+    $server=wp_sitemaps_get_server();
+    if(!$server->sitemaps_enabled()) return;
+    $name=get_query_var('sitemap');
+    $style=get_query_var('sitemap-stylesheet');
+    if(!$name && !$style) return;
+    $valid=false;
+    if($style) $valid=in_array($style,['index','sitemap'],true);
+    elseif($name==='index') $valid=true;
+    else {
+        $provider=$server->registry->get_provider($name);
+        $subtype=get_query_var('sitemap-subtype');
+        if($provider && (!$subtype || isset($provider->get_object_subtypes()[$subtype]))) {
+            $valid=!empty($provider->get_url_list(max(1,absint(get_query_var('paged'))),$subtype));
+        }
+    }
+    if($valid) status_header(200);
+}, 9);
