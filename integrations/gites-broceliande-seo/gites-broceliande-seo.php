@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gîtes de Brocéliande — Référencement
  * Description: Titres locaux, métadonnées, données structurées et contenu Booked accessible sans JavaScript. Données issues de l’application de gestion.
- * Version: 1.0.9
+ * Version: 1.0.10
  */
 defined('ABSPATH') || exit;
 
@@ -201,7 +201,7 @@ add_filter('render_block_core/post-content',function($html) {
     return $html.$s.'</ul></section>';
 });
 add_action('wp_enqueue_scripts',function() {
-    wp_enqueue_style('gbseo',plugins_url('seo.css',__FILE__),[],'1.0.9');
+    wp_enqueue_style('gbseo',plugins_url('seo.css',__FILE__),[],'1.0.10');
 });
 // A small editor field keeps local search descriptions editable in WordPress.
 add_action('add_meta_boxes_page',function(){add_meta_box('gbseo-description','Référencement — description pour les moteurs',function($post){
