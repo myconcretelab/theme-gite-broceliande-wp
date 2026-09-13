@@ -11,7 +11,7 @@ Repères entre communes, jamais présentés comme des durées porte à porte :
 - Paimpont : https://www.l-itineraire.com/de_mauron_a_paimpont — 15,5 km / 18 min.
 - Tréhorenteuc : https://www.l-itineraire.com/de_trehorenteuc_a_mauron — 15,5 km / 18 min (sens inverse, repère entre communes).
 
-Le site/Booked indique 240 m² pour Le Liberté, contre 200 m² sur la fiche Gîtes de France (https://www.gites-de-france.com/fr/bretagne/morbihan/le-liberte-56g1274). La source propriétaire est conservée ; faire harmoniser la fiche externe après vérification de la surface. Capacité autorisée : 15 ; le champ sleeping_capacity de Booked vaut 20 et ne doit pas devenir la capacité d’accueil structurée.
+Le site/Booked indique 240 m² pour Le Liberté, contre 200 m² sur la fiche Gîtes de France (https://www.gites-de-france.com/fr/bretagne/morbihan/le-liberte-56g1274). Le propriétaire a ensuite corrigé la source Booked à 200 m² pendant la livraison ; le rendu et le schéma doivent suivre cette source dynamique. Capacité autorisée : 15 ; le champ sleeping_capacity de Booked vaut 20 et ne doit pas devenir la capacité d’accueil structurée.
 
 Documentation :
 - https://developers.openai.com/api/docs/bots — OAI-SearchBot pour la recherche, distinct de GPTBot.

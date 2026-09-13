@@ -1,6 +1,6 @@
 # Visibilité et intentions de séjour — 13 septembre 2026
 
-Le module SEO passe de 1.0.8 à 1.0.10. Les données métier restent dans Contrats/Booked. Aucun changement des formulaires, prix ou conditions de réservation.
+Le module SEO passe de 1.0.8 à 1.0.11. Les données métier restent dans Contrats/Booked. Aucun changement des formulaires, prix ou conditions de réservation.
 
 - Les cinq pages françaises conservent tous leurs blocs Booked, photos et galeries. Les nouveaux textes sont éditables dans WordPress.
 - Accueil (273) : introduction, envies de séjour, FAQ et titre/description.
